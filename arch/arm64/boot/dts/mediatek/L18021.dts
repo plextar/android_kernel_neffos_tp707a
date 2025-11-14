@@ -1,0 +1,6 @@
+#include "ontim3901.dtsi"
+
+#include "bat_setting/mt6739_battery_table_LX.dtsi"
+
+#include <k39tv1_64_bsp/cust.dtsi>
+/*End of this file, DO NOT ADD ANYTHING HERE*/

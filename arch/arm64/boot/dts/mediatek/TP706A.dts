@@ -1,0 +1,10 @@
+#include "ontim3901.dtsi"
+
+#if (CONFIG_MTK_ADDITIONAL_BATTERY_TABLE == 1)
+#include "bat_setting/mt6739_battery_table_ext.dtsi"
+#else
+#include "bat_setting/mt6739_battery_table.dtsi"
+#endif
+
+#include <k39tv1_64_bsp/cust.dtsi>
+/*End of this file, DO NOT ADD ANYTHING HERE*/
