@@ -1,0 +1,9 @@
+#
+# Makefile for all kinds of Fingerprint
+#
+
+obj-$(CONFIG_GOODIX_FINGERPRINT) += goodix/
+obj-$(CONFIG_FPC_FINGERPRINT) += fpc/
+obj-y += chips_tee/
+obj-$(CONFIG_FPSENSOR_FINGERPRINT) += fpsensor_tee/
+
