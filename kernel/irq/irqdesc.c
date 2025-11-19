@@ -434,7 +434,7 @@ int __handle_domain_irq(struct irq_domain *domain, unsigned int hwirq,
     set_irq_regs(old_regs);
     return ret;
 }
-
+#endif
 /* Dynamic interrupt handling */
 
 /**
