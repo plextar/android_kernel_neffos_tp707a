@@ -416,21 +416,24 @@ int __handle_domain_irq(struct irq_domain *domain, unsigned int hwirq,
 	mt_trace_ISR_end(irq);
 #endif
 
-#ifdef CONFIG_MTK_SCHED_TRACERS {
-		pr_debug("huh, entered irq %u %s with preempt_count %08x, exited with %08x?\n",
-				irq, (desc && desc->action && desc->action->name) ?
-				desc->action->name : "-",
-				prev_count, preempt_count());
+#ifdef CONFIG_MTK_SCHED_TRACERS
+    if (prev_count != preempt_count()) {
+        struct irq_desc *desc = irq_to_desc(irq);
 
-		BUG_ON(1);
-		preempt_count_set(prev_count);
-	}
+        pr_debug("huh, entered irq %u %s with preempt_count %08x, exited with %08x?\n",
+                irq, (desc && desc->action && desc->action->name) ?
+                desc->action->name : "-",
+                prev_count, preempt_count());
 
-	irq_exit();
-	set_irq_regs(old_regs);
-	return ret;
-}
+        BUG_ON(1);
+        preempt_count_set(prev_count);
+    }
 #endif
+
+    irq_exit();
+    set_irq_regs(old_regs);
+    return ret;
+}
 
 /* Dynamic interrupt handling */
 
