@@ -416,7 +416,7 @@ int __handle_domain_irq(struct irq_domain *domain, unsigned int hwirq,
 	mt_trace_ISR_end(irq);
 #endif
 
-	#ifdef CONFIG_MTK_SCHED_TRACERS
+#ifdef CONFIG_MTK_SCHED_TRACERS {
 		pr_debug("huh, entered irq %u %s with preempt_count %08x, exited with %08x?\n",
 				irq, (desc && desc->action && desc->action->name) ?
 				desc->action->name : "-",
