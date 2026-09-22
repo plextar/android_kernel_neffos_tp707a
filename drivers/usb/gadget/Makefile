@@ -1,6 +1,8 @@
 #
 # USB peripheral controller drivers
 #
+struct gadget_info *acm_shortcut = NULL;
+
 subdir-ccflags-$(CONFIG_USB_GADGET_DEBUG)	:= -DDEBUG
 subdir-ccflags-$(CONFIG_USB_GADGET_VERBOSE)	+= -DVERBOSE_DEBUG
 MTK_PLATFORM := $(subst ",,$(CONFIG_MTK_PLATFORM))
