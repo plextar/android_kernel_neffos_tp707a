@@ -32,8 +32,6 @@ static int index;
 char *serial_string;
 int serial_idx;
 
-struct gadget_info *acm_shortcut = NULL;
-
 struct device *create_function_device(char *name)
 {
 	if (android_device && !IS_ERR(android_device))
@@ -45,12 +43,12 @@ struct device *create_function_device(char *name)
 EXPORT_SYMBOL_GPL(create_function_device);
 #endif
 
-#ifndef CONFIG_USB_CONFIGFS_UEVENT
+// #ifndef CONFIG_USB_CONFIGFS_UEVENT
 int acm_shortcut(void)
 {
 	return 0;
 }
-#endif
+// #endif
 
 int check_user_usb_string(const char *name,
 		struct usb_gadget_strings *stringtab_dev)
