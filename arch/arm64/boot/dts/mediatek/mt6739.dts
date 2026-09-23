@@ -24,7 +24,7 @@
 /dts-v1/;
 #endif
 
-	{
+/ {
 	model = "mt6739";
 	compatible = "mediatek,mt6739";
 	interrupt-parent = <&sysirq>;
